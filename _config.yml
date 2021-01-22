@@ -1,6 +1,6 @@
 theme: jekyll-theme-leap-day
-title: Lieman's Blog
-description: nothing
+title: Lieman
+description: blog
 exclude:
   temp/
   README.md
