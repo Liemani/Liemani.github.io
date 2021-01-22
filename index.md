@@ -4,8 +4,7 @@
 
 ### This is index md file
 
-1. [README](README.md)
-2. [20210122](20210122.md)
+1. [20210122](20210122.md)
 
 is it work in html?
 
