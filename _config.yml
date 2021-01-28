@@ -1,10 +1,10 @@
 theme: jekyll-theme-leap-day
-title: Lieman
+title: Liemani
 description: blog
 exclude:
   temp/
   README.md
-#  author: Lieman
+#  author: Liemani
 # social-network-links:
 #   email: "parkjh2768@naver.com"
 #   github: Liemani
