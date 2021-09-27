@@ -1,3 +1,3 @@
 ### Index
 
-[ssize\_t 에 대해서 알아보자 (2021/01/28/)](contents/article/20210128)
+[ssize\_t 에 대해서 알아보자 (2021-01-28)](contents/article/20210128)
