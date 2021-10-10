@@ -103,20 +103,20 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 55 + 56) / 113)
-exe 'vert 1resize ' . ((&columns * 107 + 161) / 322)
-exe '2resize ' . ((&lines * 55 + 56) / 113)
-exe 'vert 2resize ' . ((&columns * 107 + 161) / 322)
-exe '3resize ' . ((&lines * 55 + 56) / 113)
-exe 'vert 3resize ' . ((&columns * 107 + 161) / 322)
-exe '4resize ' . ((&lines * 55 + 56) / 113)
-exe 'vert 4resize ' . ((&columns * 107 + 161) / 322)
-exe '5resize ' . ((&lines * 36 + 56) / 113)
-exe 'vert 5resize ' . ((&columns * 106 + 161) / 322)
-exe '6resize ' . ((&lines * 37 + 56) / 113)
-exe 'vert 6resize ' . ((&columns * 106 + 161) / 322)
-exe '7resize ' . ((&lines * 36 + 56) / 113)
-exe 'vert 7resize ' . ((&columns * 106 + 161) / 322)
+exe '1resize ' . ((&lines * 111 + 57) / 115)
+exe 'vert 1resize ' . ((&columns * 83 + 125) / 251)
+exe '2resize ' . ((&lines * 1 + 57) / 115)
+exe 'vert 2resize ' . ((&columns * 83 + 125) / 251)
+exe '3resize ' . ((&lines * 56 + 57) / 115)
+exe 'vert 3resize ' . ((&columns * 83 + 125) / 251)
+exe '4resize ' . ((&lines * 56 + 57) / 115)
+exe 'vert 4resize ' . ((&columns * 83 + 125) / 251)
+exe '5resize ' . ((&lines * 37 + 57) / 115)
+exe 'vert 5resize ' . ((&columns * 83 + 125) / 251)
+exe '6resize ' . ((&lines * 37 + 57) / 115)
+exe 'vert 6resize ' . ((&columns * 83 + 125) / 251)
+exe '7resize ' . ((&lines * 37 + 57) / 115)
+exe 'vert 7resize ' . ((&columns * 83 + 125) / 251)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -232,12 +232,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 27) / 55)
+let s:l = 78 - ((77 * winheight(0) + 55) / 111)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+78
+normal! 05|
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
@@ -356,7 +356,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 19 - ((18 * winheight(0) + 27) / 55)
+let s:l = 19 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -480,7 +480,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 13 - ((12 * winheight(0) + 27) / 55)
+let s:l = 13 - ((12 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -604,7 +604,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 27) / 55)
+let s:l = 1 - ((0 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -728,12 +728,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 18) / 36)
+let s:l = 1 - ((0 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 036|
+1
+normal! 021|
 wincmd w
 argglobal
 if bufexists("~/git/Liemani.github.io/contents/article/20210128.md") | buffer ~/git/Liemani.github.io/contents/article/20210128.md | else | edit ~/git/Liemani.github.io/contents/article/20210128.md | endif
@@ -851,7 +851,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 18) / 37)
+let s:l = 2 - ((0 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -975,7 +975,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 18) / 36)
+let s:l = 3 - ((2 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -983,20 +983,20 @@ normal! zt
 normal! 0
 lcd ~/git/Liemani.github.io
 wincmd w
-exe '1resize ' . ((&lines * 55 + 56) / 113)
-exe 'vert 1resize ' . ((&columns * 107 + 161) / 322)
-exe '2resize ' . ((&lines * 55 + 56) / 113)
-exe 'vert 2resize ' . ((&columns * 107 + 161) / 322)
-exe '3resize ' . ((&lines * 55 + 56) / 113)
-exe 'vert 3resize ' . ((&columns * 107 + 161) / 322)
-exe '4resize ' . ((&lines * 55 + 56) / 113)
-exe 'vert 4resize ' . ((&columns * 107 + 161) / 322)
-exe '5resize ' . ((&lines * 36 + 56) / 113)
-exe 'vert 5resize ' . ((&columns * 106 + 161) / 322)
-exe '6resize ' . ((&lines * 37 + 56) / 113)
-exe 'vert 6resize ' . ((&columns * 106 + 161) / 322)
-exe '7resize ' . ((&lines * 36 + 56) / 113)
-exe 'vert 7resize ' . ((&columns * 106 + 161) / 322)
+exe '1resize ' . ((&lines * 111 + 57) / 115)
+exe 'vert 1resize ' . ((&columns * 83 + 125) / 251)
+exe '2resize ' . ((&lines * 1 + 57) / 115)
+exe 'vert 2resize ' . ((&columns * 83 + 125) / 251)
+exe '3resize ' . ((&lines * 56 + 57) / 115)
+exe 'vert 3resize ' . ((&columns * 83 + 125) / 251)
+exe '4resize ' . ((&lines * 56 + 57) / 115)
+exe 'vert 4resize ' . ((&columns * 83 + 125) / 251)
+exe '5resize ' . ((&lines * 37 + 57) / 115)
+exe 'vert 5resize ' . ((&columns * 83 + 125) / 251)
+exe '6resize ' . ((&lines * 37 + 57) / 115)
+exe 'vert 6resize ' . ((&columns * 83 + 125) / 251)
+exe '7resize ' . ((&lines * 37 + 57) / 115)
+exe 'vert 7resize ' . ((&columns * 83 + 125) / 251)
 tabnext 1
 badd +19 ~/git/Liemani.github.io/contents/article/20211009.md
 badd +1 ~/git/Liemani.github.io/index.md
