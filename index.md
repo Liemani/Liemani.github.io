@@ -1,6 +1,7 @@
 프로그래밍에 진심인 편
 ### Index
 
+- [Oct 11, 2021, 반복하며 작업하는 코드의 작성(2)](contents/article/20211011)
 - [Oct 10, 2021, 반복하며 작업하는 코드의 작성(1)](contents/article/20211010)
 - [Oct 09, 2021, 사례로 배우는 cli 라인 편집](contents/article/20211009)
 - [Oct 05, 2021, vim 에서 man page 보기](contents/article/20211005)
