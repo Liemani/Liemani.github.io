@@ -10,10 +10,14 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
+nmap <F1> :Stdheader
+nnoremap <F12><F12> :set modifiable:set write
+vmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
-nnoremap <F12><F12> :set modifiable:set write
 nnoremap <F12> :set nomodifiable:set nowrite
+nnoremap <F11><F11> :set modifiable:set write
+nnoremap <F11> :set nomodifiable:set nowrite
 nnoremap <F7> v/:vimgrep  ##:copen
 nnoremap <F6> v:args `find . -iname \*.\[hc\]`
 nnoremap <F5> :e
@@ -22,7 +26,7 @@ nnoremap <F3><F3> :mksession! $git/.private/.vimsession/
 nnoremap <F3> :mksession! $git_root/.vimsession
 nnoremap <F2> :Explore
 nnoremap <F1><F1> ggV}zf
-nmap <F1> :Stdheader
+omap <F1> :Stdheader
 vmap <BS> "-d
 vmap <D-x> "*d
 vmap <D-c> "*y
@@ -60,7 +64,7 @@ set ttimeout
 set ttimeoutlen=100
 set wildmenu
 set window=0
-let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
@@ -72,7 +76,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd index.md
-edit contents/article/20211011.md
+edit contents/article/20211113.md
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -90,7 +94,10 @@ wincmd _ | wincmd |
 split
 wincmd _ | wincmd |
 split
-6wincmd k
+wincmd _ | wincmd |
+split
+7wincmd k
+wincmd w
 wincmd w
 wincmd w
 wincmd w
@@ -104,22 +111,25 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 125 + 125) / 251)
-exe '2resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 2resize ' . ((&columns * 125 + 125) / 251)
-exe '3resize ' . ((&lines * 101 + 57) / 115)
-exe 'vert 3resize ' . ((&columns * 125 + 125) / 251)
-exe '4resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 4resize ' . ((&columns * 125 + 125) / 251)
-exe '5resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 5resize ' . ((&columns * 125 + 125) / 251)
-exe '6resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 6resize ' . ((&columns * 125 + 125) / 251)
-exe '7resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 7resize ' . ((&columns * 125 + 125) / 251)
-exe '8resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 8resize ' . ((&columns * 125 + 125) / 251)
+exe 'vert 1resize ' . ((&columns * 118 + 119) / 238)
+exe '2resize ' . ((&lines * 23 + 36) / 72)
+exe 'vert 2resize ' . ((&columns * 119 + 119) / 238)
+exe '3resize ' . ((&lines * 6 + 36) / 72)
+exe 'vert 3resize ' . ((&columns * 119 + 119) / 238)
+exe '4resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 4resize ' . ((&columns * 119 + 119) / 238)
+exe '5resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 5resize ' . ((&columns * 119 + 119) / 238)
+exe '6resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 6resize ' . ((&columns * 119 + 119) / 238)
+exe '7resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 7resize ' . ((&columns * 119 + 119) / 238)
+exe '8resize ' . ((&lines * 19 + 36) / 72)
+exe 'vert 8resize ' . ((&columns * 119 + 119) / 238)
+exe '9resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 9resize ' . ((&columns * 119 + 119) / 238)
 argglobal
+balt contents/article/20211113.md
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -133,8 +143,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=fb:*,fb:-,fb:+,n:>
-setlocal commentstring=>\ %s
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal completefunc=
 setlocal nocopyindent
@@ -164,8 +174,8 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcqln
-setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\|^[-*+]\\s\\+\\|^\\[^\\ze[^\\]]\\+\\]:
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
@@ -181,16 +191,17 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
-setlocal matchpairs=(:),{:},[:],<:>
+setlocal matchpairs=(:),{:},[:]
 setlocal modeline
 setlocal modifiable
 setlocal nrformats=bin,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal omnifunc=
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -210,6 +221,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -234,16 +246,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 56) / 113)
+let &fdl = &fdl
+let s:l = 41 - ((26 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
-exe s:l
+keepjumps exe s:l
 normal! zt
-1
+keepjumps 41
 normal! 0
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
 if bufexists("~/git/Liemani.github.io/index.md") | buffer ~/git/Liemani.github.io/index.md | else | edit ~/git/Liemani.github.io/index.md | endif
+balt ~/git/Liemani.github.io/contents/article/20211011.md
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -305,6 +319,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
@@ -334,6 +349,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -358,15 +374,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((0 * winheight(0) + 0) / 1)
+let &fdl = &fdl
+let s:l = 4 - ((3 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
-exe s:l
+keepjumps exe s:l
 normal! zt
-2
-normal! 09|
+keepjumps 4
+normal! 026|
 wincmd w
 argglobal
-if bufexists("~/git/Liemani.github.io/contents/article/20211010.md") | buffer ~/git/Liemani.github.io/contents/article/20211010.md | else | edit ~/git/Liemani.github.io/contents/article/20211010.md | endif
+if bufexists("~/git/Liemani.github.io/contents/article/20211011.md") | buffer ~/git/Liemani.github.io/contents/article/20211011.md | else | edit ~/git/Liemani.github.io/contents/article/20211011.md | endif
+balt ~/git/Liemani.github.io/contents/article/20211113.md
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -428,6 +446,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
@@ -457,6 +476,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -481,16 +501,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 120 - ((93 * winheight(0) + 50) / 101)
+let &fdl = &fdl
+let s:l = 219 - ((2 * winheight(0) + 3) / 6)
 if s:l < 1 | let s:l = 1 | endif
-exe s:l
+keepjumps exe s:l
 normal! zt
-120
-normal! 030|
+keepjumps 219
+normal! 063|
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
-if bufexists("~/git/Liemani.github.io/contents/article/20211009.md") | buffer ~/git/Liemani.github.io/contents/article/20211009.md | else | edit ~/git/Liemani.github.io/contents/article/20211009.md | endif
+if bufexists("~/git/Liemani.github.io/contents/article/20211010.md") | buffer ~/git/Liemani.github.io/contents/article/20211010.md | else | edit ~/git/Liemani.github.io/contents/article/20211010.md | endif
+balt ~/git/Liemani.github.io/contents/article/20211011.md
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -552,6 +574,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
@@ -581,6 +604,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -605,16 +629,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 42 - ((0 * winheight(0) + 0) / 1)
+let &fdl = &fdl
+let s:l = 120 - ((2 * winheight(0) + 1) / 3)
 if s:l < 1 | let s:l = 1 | endif
-exe s:l
+keepjumps exe s:l
 normal! zt
-42
+keepjumps 120
 normal! 0
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
-if bufexists("~/git/Liemani.github.io/contents/article/20211005.md") | buffer ~/git/Liemani.github.io/contents/article/20211005.md | else | edit ~/git/Liemani.github.io/contents/article/20211005.md | endif
+if bufexists("~/git/Liemani.github.io/contents/article/20211009.md") | buffer ~/git/Liemani.github.io/contents/article/20211009.md | else | edit ~/git/Liemani.github.io/contents/article/20211009.md | endif
+balt ~/git/Liemani.github.io/contents/article/20211011.md
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -676,6 +702,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
@@ -705,6 +732,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -729,16 +757,146 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 13 - ((0 * winheight(0) + 0) / 1)
+let &fdl = &fdl
+let s:l = 20 - ((2 * winheight(0) + 1) / 3)
 if s:l < 1 | let s:l = 1 | endif
-exe s:l
+keepjumps exe s:l
 normal! zt
-13
+keepjumps 20
+normal! 016|
+lcd ~/git/Liemani.github.io
+wincmd w
+argglobal
+if bufexists("~/git/Liemani.github.io/contents/article/20211005.md") | buffer ~/git/Liemani.github.io/contents/article/20211005.md | else | edit ~/git/Liemani.github.io/contents/article/20211005.md | endif
+balt ~/git/Liemani.github.io/contents/article/20211011.md
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=fb:*,fb:-,fb:+,n:>
+setlocal commentstring=>\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'markdown'
+setlocal filetype=markdown
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcqln
+setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\|^[-*+]\\s\\+\\|^\\[^\\ze[^\\]]\\+\\]:
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal listchars=
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
+setlocal signcolumn=auto
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'markdown'
+setlocal syntax=markdown
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tagfunc=
+setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal wincolor=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 13 - ((0 * winheight(0) + 1) / 3)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 13
 normal! 055|
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
 if bufexists("~/git/Liemani.github.io/contents/article/20211003.md") | buffer ~/git/Liemani.github.io/contents/article/20211003.md | else | edit ~/git/Liemani.github.io/contents/article/20211003.md | endif
+balt ~/git/Liemani.github.io/contents/article/20211011.md
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -800,6 +958,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
@@ -829,6 +988,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -853,16 +1013,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((0 * winheight(0) + 0) / 1)
+let &fdl = &fdl
+let s:l = 2 - ((0 * winheight(0) + 1) / 3)
 if s:l < 1 | let s:l = 1 | endif
-exe s:l
+keepjumps exe s:l
 normal! zt
-2
+keepjumps 2
 normal! 0
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
 if bufexists("~/git/Liemani.github.io/contents/article/20210928.md") | buffer ~/git/Liemani.github.io/contents/article/20210928.md | else | edit ~/git/Liemani.github.io/contents/article/20210928.md | endif
+balt ~/git/Liemani.github.io/contents/article/20211011.md
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -924,6 +1086,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
@@ -953,6 +1116,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -977,16 +1141,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((0 * winheight(0) + 0) / 1)
+let &fdl = &fdl
+let s:l = 3 - ((0 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
-exe s:l
+keepjumps exe s:l
 normal! zt
-3
+keepjumps 3
 normal! 0
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
 if bufexists("~/git/Liemani.github.io/contents/article/20210128.md") | buffer ~/git/Liemani.github.io/contents/article/20210128.md | else | edit ~/git/Liemani.github.io/contents/article/20210128.md | endif
+balt ~/git/Liemani.github.io/contents/article/20211011.md
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1048,6 +1214,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
@@ -1077,6 +1244,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -1101,38 +1269,42 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((0 * winheight(0) + 0) / 1)
+let &fdl = &fdl
+let s:l = 2 - ((0 * winheight(0) + 1) / 3)
 if s:l < 1 | let s:l = 1 | endif
-exe s:l
+keepjumps exe s:l
 normal! zt
-2
+keepjumps 2
 normal! 0
 lcd ~/git/Liemani.github.io
 wincmd w
-exe 'vert 1resize ' . ((&columns * 125 + 125) / 251)
-exe '2resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 2resize ' . ((&columns * 125 + 125) / 251)
-exe '3resize ' . ((&lines * 101 + 57) / 115)
-exe 'vert 3resize ' . ((&columns * 125 + 125) / 251)
-exe '4resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 4resize ' . ((&columns * 125 + 125) / 251)
-exe '5resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 5resize ' . ((&columns * 125 + 125) / 251)
-exe '6resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 6resize ' . ((&columns * 125 + 125) / 251)
-exe '7resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 7resize ' . ((&columns * 125 + 125) / 251)
-exe '8resize ' . ((&lines * 1 + 57) / 115)
-exe 'vert 8resize ' . ((&columns * 125 + 125) / 251)
+exe 'vert 1resize ' . ((&columns * 118 + 119) / 238)
+exe '2resize ' . ((&lines * 23 + 36) / 72)
+exe 'vert 2resize ' . ((&columns * 119 + 119) / 238)
+exe '3resize ' . ((&lines * 6 + 36) / 72)
+exe 'vert 3resize ' . ((&columns * 119 + 119) / 238)
+exe '4resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 4resize ' . ((&columns * 119 + 119) / 238)
+exe '5resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 5resize ' . ((&columns * 119 + 119) / 238)
+exe '6resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 6resize ' . ((&columns * 119 + 119) / 238)
+exe '7resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 7resize ' . ((&columns * 119 + 119) / 238)
+exe '8resize ' . ((&lines * 19 + 36) / 72)
+exe 'vert 8resize ' . ((&columns * 119 + 119) / 238)
+exe '9resize ' . ((&lines * 3 + 36) / 72)
+exe 'vert 9resize ' . ((&columns * 119 + 119) / 238)
 tabnext 1
+badd +1 ~/git/Liemani.github.io/contents/article/20211113.md
+badd +1 ~/git/Liemani.github.io/index.md
+badd +1 ~/git/Liemani.github.io/contents/article/20211011.md
 badd +1 ~/git/Liemani.github.io/contents/article/20211010.md
-badd +4 ~/git/Liemani.github.io/index.md
 badd +19 ~/git/Liemani.github.io/contents/article/20211009.md
 badd +13 ~/git/Liemani.github.io/contents/article/20211005.md
 badd +38 ~/git/Liemani.github.io/contents/article/20211003.md
-badd +1 ~/git/Liemani.github.io/contents/article/20210128.md
 badd +1 ~/git/Liemani.github.io/contents/article/20210928.md
-badd +0 ~/git/Liemani.github.io/contents/article/20211011.md
+badd +1 ~/git/Liemani.github.io/contents/article/20210128.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -1140,10 +1312,10 @@ unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToOS
 set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if file_readable(s:sx)
+if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
-let &so = s:so_save | let &siso = s:siso_save
+let &g:so = s:so_save | let &g:siso = s:siso_save
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
