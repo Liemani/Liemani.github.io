@@ -10,9 +10,9 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-nmap <F1> :Stdheader
-nnoremap <F12><F12> :set modifiable:set write
 vmap <F1> :Stdheader
+nnoremap <F12><F12> :set modifiable:set write
+nmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12> :set nomodifiable:set nowrite
@@ -247,12 +247,12 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 41 - ((26 * winheight(0) + 35) / 70)
+let s:l = 39 - ((38 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 41
-normal! 0
+keepjumps 39
+normal! 08|
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
@@ -507,7 +507,7 @@ if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 219
-normal! 063|
+normal! 017|
 lcd ~/git/Liemani.github.io
 wincmd w
 argglobal
