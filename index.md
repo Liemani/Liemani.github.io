@@ -1,7 +1,7 @@
 프로그래밍에 진심인 편
 ### Index
 
-- [Jan 13, 2022, 자신만의 해결 방법](contents/article/20220113)
+- [Jan 13, 2022, 하기 싫어질 때](contents/article/20220113)
 - [Nov 13, 2021, 핸드폰을 MacBook 의 터미널로 사용하기(router 없이, 충전기 없이)](contents/article/20211113)
 - [Oct 11, 2021, 반복하며 작업하는 코드의 작성(2)](contents/article/20211011)
 - [Oct 10, 2021, 반복하며 작업하는 코드의 작성(1)](contents/article/20211010)
