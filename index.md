@@ -1,6 +1,9 @@
 프로그래밍에 진심인 편
-### Index
+##### 주요 git repository
+- [note/contents/pour.txt](https://github.com/Liemani/note/blob/main/contents/pour.txt): 공부 내용을 마구 기록
+- [note_personal/contents/etc: pour.txt](https://github.com/Liemani/note_personal/blob/main/contents/etc:%20pour.txt): 나의 생각을 쏟아내는 곳
 
+### Contents
 - [Jan 13, 2022, 하기 싫어질 때](contents/article/20220113)
 - [Nov 13, 2021, 핸드폰을 MacBook 의 터미널로 사용하기(router 없이, 충전기 없이)](contents/article/20211113)
 - [Oct 11, 2021, 반복하며 작업하는 코드의 작성(2)](contents/article/20211011)
