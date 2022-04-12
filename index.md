@@ -1,7 +1,9 @@
 프로그래밍에 진심인 편
 ##### 주요 git repository
-- [note/contents/pour.txt](https://github.com/Liemani/note/blob/main/contents/pour.txt): 공부 내용을 마구 기록
-- [note_personal/contents/etc: pour.txt](https://github.com/Liemani/note_personal/blob/main/contents/etc:%20pour.txt): 나의 생각을 쏟아내는 곳
+- [Liemani/note/contents/pour.txt](https://github.com/Liemani/note/blob/main/contents/pour.txt): 학습 내용을 마구 기록
+- [Liemani/env](https://github.com/Liemani/env): 나의 terminal 개발 환경 설정을 위한 shell script들
+- [Liemani/playground/contents](https://github.com/Liemani/playground): 다양한 실험을 하는 공간
+- [Liemani/note_personal/contents/etc: pour.txt](https://github.com/Liemani/note_personal/blob/main/contents/etc:%20pour.txt): 나의 생각을 쏟아내는 곳
 
 ### Contents
 - [Jan 13, 2022, 하기 싫어질 때](contents/article/20220113)
