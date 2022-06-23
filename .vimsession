@@ -80,7 +80,7 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/git/Liemani.github.io/contents/article
+cd ~/git/Liemani.github.io/article
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -88,7 +88,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd ~/git/Liemani.github.io/index.md
-edit ~/git/Liemani.github.io/contents/til/20220425.md
+edit ~/git/Liemani.github.io/til/20220425.md
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -231,10 +231,10 @@ exe s:l
 normal! zt
 1
 normal! 0
-lcd ~/git/Liemani.github.io/contents/article
+lcd ~/git/Liemani.github.io/article
 wincmd w
 argglobal
-if bufexists("~/git/Liemani.github.io/contents/til/20220422.md") | buffer ~/git/Liemani.github.io/contents/til/20220422.md | else | edit ~/git/Liemani.github.io/contents/til/20220422.md | endif
+if bufexists("~/git/Liemani.github.io/til/20220422.md") | buffer ~/git/Liemani.github.io/til/20220422.md | else | edit ~/git/Liemani.github.io/til/20220422.md | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -355,7 +355,7 @@ exe s:l
 normal! zt
 1
 normal! 0
-lcd ~/git/Liemani.github.io/contents/article
+lcd ~/git/Liemani.github.io/article
 wincmd w
 argglobal
 if bufexists("~/git/Liemani.github.io/index.md") | buffer ~/git/Liemani.github.io/index.md | else | edit ~/git/Liemani.github.io/index.md | endif
@@ -486,21 +486,21 @@ exe '2resize ' . ((&lines * 1 + 49) / 98)
 exe 'vert 2resize ' . ((&columns * 181 + 181) / 362)
 exe 'vert 3resize ' . ((&columns * 180 + 181) / 362)
 tabnext 1
-badd +137 ~/git/Liemani.github.io/contents/til/20220422.md
+badd +137 ~/git/Liemani.github.io/til/20220422.md
 badd +3 ~/git/Liemani.github.io/index.md
-badd +30 ~/git/Liemani.github.io/contents/til/20220420.md
-badd +7 ~/git/Liemani.github.io/contents/til/20220418.md
-badd +3 ~/git/Liemani.github.io/contents/article/20220113.md
-badd +135 ~/git/Liemani.github.io/contents/article/20211011.md
-badd +120 ~/git/Liemani.github.io/contents/article/20211010.md
-badd +19 ~/git/Liemani.github.io/contents/article/20211009.md
-badd +12 ~/git/Liemani.github.io/contents/article/20211005.md
-badd +2 ~/git/Liemani.github.io/contents/article/20211003.md
-badd +4 ~/git/Liemani.github.io/contents/article/20210928.md
-badd +2 ~/git/Liemani.github.io/contents/article/20210128.md
-badd +40 ~/git/Liemani.github.io/contents/article/20211113.md
-badd +1 ~/git/Liemani.github.io/contents/article/20220414.md
-badd +0 ~/git/Liemani.github.io/contents/til/20220425.md
+badd +30 ~/git/Liemani.github.io/til/20220420.md
+badd +7 ~/git/Liemani.github.io/til/20220418.md
+badd +3 ~/git/Liemani.github.io/article/20220113.md
+badd +135 ~/git/Liemani.github.io/article/20211011.md
+badd +120 ~/git/Liemani.github.io/article/20211010.md
+badd +19 ~/git/Liemani.github.io/article/20211009.md
+badd +12 ~/git/Liemani.github.io/article/20211005.md
+badd +2 ~/git/Liemani.github.io/article/20211003.md
+badd +4 ~/git/Liemani.github.io/article/20210928.md
+badd +2 ~/git/Liemani.github.io/article/20210128.md
+badd +40 ~/git/Liemani.github.io/article/20211113.md
+badd +1 ~/git/Liemani.github.io/article/20220414.md
+badd +0 ~/git/Liemani.github.io/til/20220425.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
