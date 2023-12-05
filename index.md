@@ -1,9 +1,10 @@
 프로그래밍에 진심인 편
+
 ##### 주요 git repository
-- [Liemani/note/contents/pour.txt](https://github.com/Liemani/note/blob/main/diary.txt): 학습 내용을 마구 기록
-- [Liemani/env](https://github.com/Liemani/env): 나의 terminal 개발 환경 설정을 위한 shell script들
-- [Liemani/playground/contents](https://github.com/Liemani/playground): 다양한 실험을 하는 공간
-- [Liemani/note_personal/contents/etc: pour.txt](https://github.com/Liemani/note_personal/blob/main/dump_diary.txt): 나의 생각을 쏟아내는 곳
+- [Liemani/note/diary.txt](https://github.com/Liemani/note/blob/main/diary.txt) : 사용한 것들을 기록
+- [Liemani/note_personal/dump_diary.txt](https://github.com/Liemani/note_personal/blob/main/dump_diary.txt) : 생각을 기록
+- [Liemani/env](https://github.com/Liemani/env) : 개인 terminal 환경을 설정하기 위한 repository
+- [Liemani/playground](https://github.com/Liemani/playground) : 연습 공간
 
 ### Contents
 - [Apr 22, 2022, webserv study 5](til/20220422)
