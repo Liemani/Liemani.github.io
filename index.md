@@ -7,6 +7,8 @@
 - [Liemani/playground](https://github.com/Liemani/playground) : 연습 공간
 
 ### Contents
+- [Jul 08, 2024, delete system extension](article/20240708)
+- [Jun 18, 2024, mac 'Quick Actions'가 먹히지 않을 경우 해결 방법](article/20240618)
 - [Apr 22, 2022, webserv study 5](til/20220422)
 - [Apr 20, 2022, webserv study 4](til/20220420)
 - [Apr 18, 2022, webserv study 3](til/20220418)
